@@ -22,6 +22,13 @@ mydb = mysql.connector.connect(
     ssl_ca="BaltimoreCyberTrustRoot.crt.pem"
 )
 
+# mydb = mysql.connector.connect(
+#     host="localhost",
+#     user="root",
+#     passwd="root",
+#     database="database"
+# )
+
 app = Flask(__name__)
 
 # Creating the secret Key For Session For Storing Session Value
