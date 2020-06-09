@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="card" style="margin-left: 10%; margin-right: 10%; margin-top: 10%; margin-bottom: 20%">
+        <div class="card-header">
+            <center><big>SELECT OPTIONS</big></center>
+        </div>
+        <div class="card-body">
+            <form action="/product_review">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Product Review</button>
+            </form>
+            <br>
+            <form action="/shop_review">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Shop Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

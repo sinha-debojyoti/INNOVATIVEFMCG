@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <b>SHOP ID </b>{{ shop_id }}
+    <form action="/shop_login_logout">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
+
+    <br>
+    <form action="/shop_main_page">
+        <button type="submit" class="btn btn-primary">Back</button>
+    </form>
+
+    <br>
+    <p>
+        <b>{{ shop_avail }} products in your shop.</b>
+    </p>
+
+    {% if shop_avail > 0 %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Selling Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for items in shop_list %}
+            <tr>
+                <th>{{ items[0] }}</th>
+                <th>{{ items[1] }}</th>
+                <th>{{ items[2] }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+
+{% endblock %}

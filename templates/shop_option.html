@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    {{ message }}
+    <br>
+    <b>SHOP ID </b>{{ shop_id }}
+    <form action="/shop_login_logout">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
+
+    <br>
+    <form action="/store_inventory">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Store Inventory</button>
+    </form>
+
+    <br>
+    <form action="/update_prices">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Update Price and Quantity</button>
+    </form>
+
+</div>
+
+{% endblock %}

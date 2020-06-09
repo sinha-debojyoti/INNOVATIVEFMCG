@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <b>SHOP ID </b>{{ shop_id }}
+    <form action="/shop_login_logout">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
+
+    <br>
+    <form action="/shop_main_page">
+        <button type="submit" class="btn btn-primary">Back</button>
+    </form>
+
+    <br>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="p-2 mb-1 bg-warning text-white">
+                <b>{{product_name}} Current Price - Rs {{ curr_price[0] }}</b>
+            </div>
+            <div class="p-2 mb-1 bg-success text-white">
+                <b>Suggested Price According to the trends - Rs {{ pred_sp }}</b>
+            </div>
+
+            <form action="/update_price_to_db" method="post">
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input name="product" class="form-control" type="text" value={{product_name}} readonly>
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <label>Update Price</label>
+                    <input name="update_price" class="form-control" type="number"
+                           placeholder="Enter Updated Selling Price..." autofocus autocomplete="off">
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <label>Update Quantity</label>
+                    <input name="update_quantity" class="form-control" type="number"
+                           placeholder="Enter Updated Quantity..." autofocus autocomplete="off">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Update Price</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

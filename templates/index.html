@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    {{message}}
+    <div class="card" style="margin-left: 10%; margin-right: 10%; margin-top: 10%; margin-bottom: 20%">
+        <div class="card-header">
+            <center><big>SELECT OPTIONS</big></center>
+        </div>
+        <div class="card-body">
+            <form action="/search_items">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Item Search</button>
+            </form>
+            <br>
+            <form action="/reviews_option">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Reviews</button>
+            </form>
+            <br>
+            <form action="/shop_login">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Shop Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

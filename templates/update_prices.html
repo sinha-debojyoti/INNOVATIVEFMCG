@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <b>SHOP ID </b>{{ shop_id }}
+    <form action="/shop_login_logout">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
+    <br>
+    <form action="/shop_main_page">
+        <button type="submit" class="btn btn-primary">Back</button>
+    </form>
+
+    <form action="update_price_process" method="post">
+        <div class="form-group">
+            <label>Produt Name</label>
+            <select name="product" class="form-control">
+                {% for product in products %}
+                <option>{{ product[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Update Price</button>
+    </form>
+
+</div>
+
+{% endblock %}

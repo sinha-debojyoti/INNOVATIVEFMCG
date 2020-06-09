@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <br>
+    <form action="/">
+        <button type="submit" class="btn btn-primary">Back</button>
+    </form>
+    <br>
+
+    <form action="/search_items_process" method="post">
+        <div class="form-group">
+            <select name="item_name" class="form-control">
+                {% for product in products %}
+                <option>{{ product[0] }}</option>
+                {% endfor %}
+            </select>
+
+            <input id="send_latitude" type="hidden" name="latitude">
+            <input id="send_longitude" type="hidden" name="longitude">
+
+        </div>
+        <button onclick="getLocation()" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+
+        document.getElementById("send_latitude").value = latitude;
+        document.getElementById("send_longitude").value = longitude;
+    }
+</script>
+
+{% endblock %}

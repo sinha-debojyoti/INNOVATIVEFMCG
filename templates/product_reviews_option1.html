@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <form action="/product_reviews_process" method="post">
+                <div class="form-group">
+                    <label>Enter Product Name</label>
+                    <select name="product" class="form-control">
+                        {% for product in products %}
+                        <option>{{ product[0] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Enter your comments</label>
+                    <input name="reviews" class="form-control" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Reviews</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

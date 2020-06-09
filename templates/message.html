@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <br>
+    <form action="/">
+        <button type="submit" class="btn btn-primary">Back</button>
+    </form>
+    <br>
+
+    <div class="alert alert-info">
+        {{ message }}
+    </div>
+</div>
+
+{% endblock %}

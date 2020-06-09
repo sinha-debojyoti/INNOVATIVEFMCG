@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+
+    <br>
+    <br>
+    <form action="/">
+        <button type="submit" class="btn btn-primary">Back</button>
+    </form>
+    <br>
+
+
+    <p>
+        {{item_name}} is available in {{ shop_avail }} shops.
+    </p>
+
+
+    {% if shop_avail > 0 %}
+    <p class="leader">
+        {{item_name}} Rating -
+        {% if pdreview_comment == "Good" %}}
+            <span class="badge badge-success">{{ pdreview_comment }}</span>
+        {% endif %}
+        {% if pdreview_comment == "Neutral" %}}
+            <span class="badge badge-light">{{ pdreview_comment }}</span>
+        {% endif %}
+        {% if pdreview_comment == "Negative" %}}
+            <span class="badge badge-danger">{{ pdreview_comment }}</span>
+        {% endif %}
+    </p>
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Shop Name</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Contact Details</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Selling Price</th>
+            <th scope="col">Distance(in KM)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for items in shop_list %}
+        <tr>
+            <th>{{ items[0] }}</th>
+
+            {% if items[-2] == "Good" %}}
+                <th><span class="badge badge-success">{{ items[-2] }}</span></th>
+            {% endif %}
+            {% if items[-2] == "Neutral" %}}
+                <th><span class="badge badge-light">{{ items[-2] }}</span></th>
+            {% endif %}
+            {% if items[-2] == "Negative" %}}
+                <th><span class="badge badge-danger">{{ items[-2] }}</span></th>
+            {% endif %}
+
+            <th>{{ items[-3] }}</th>
+            <th>{{ items[1] }}</th>
+            <th>{{ items[2] }}</th>
+            <th>{{ items[-1] }}</th>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</div>
+
+{% endblock %}
